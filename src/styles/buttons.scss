@@ -1,0 +1,14 @@
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 5px 15px;
+  border: 1px solid $base;
+  border-radius: 8px;
+  color: $neutral-main;
+  font-weight: 500;
+  transition: border-color .2s linear;
+
+  &:hover {
+    border-color: $neutral-placeholder;
+  }
+}
