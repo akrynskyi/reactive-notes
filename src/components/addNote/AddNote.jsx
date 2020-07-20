@@ -20,6 +20,7 @@ export const AddNote = ({ toggle, setModalToggle, getNote }) => {
     });
 
     e.currentTarget.reset();
+    setModalToggle(false);
   }
 
   return (
