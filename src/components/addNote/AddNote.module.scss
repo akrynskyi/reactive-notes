@@ -1,25 +1,8 @@
 @import '../../styles/vars.scss';
+@import '../../styles/mixins/overlay.mixin.scss';
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  pointer-events: none;
-  background-color: rgba(0, 0, 0, .75);
-  backdrop-filter: blur(2px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: zoom-out;
-  transition: opacity .2s ease-in;
-
-  &.active {
-    opacity: 1;
-    pointer-events: all;
-  }
+  @include overlay;
 }
 
 .form {
@@ -29,10 +12,28 @@
   background: $def;
   padding: 15px;
   cursor: auto;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: all .2s linear .3s;
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
   &__headline,
   &__control {
     margin-bottom: 10px;
+  }
+
+  &__control,
+  &__btnwrap {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  &__action {
+    display: flex;
   }
 
   &__action > button:first-child {

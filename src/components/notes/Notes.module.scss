@@ -27,7 +27,13 @@
     text-overflow: ellipsis;
   }
 
+  &__handle {
+    color: $neutral-regular;
+    cursor: grab;
+  }
+
   &__body {
+    width: 90%;
     font-size: 16px;
     margin: 25px 0px;
     flex-grow: 1;
@@ -43,6 +49,10 @@
 .box {
   display: flex;
   align-items: center;
+
+  &.btw {
+    justify-content: space-between;
+  }
 }
 
 .picture {
