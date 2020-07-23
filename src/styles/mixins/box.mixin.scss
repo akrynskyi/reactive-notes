@@ -1,0 +1,8 @@
+@mixin box {
+  display: flex;
+  align-items: center;
+
+  &.btw {
+    justify-content: space-between;
+  }
+}

@@ -1,25 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import style from './CreateNote.module.scss';
-import { AddNote } from '../addNote/AddNote';
 
-export const CreateNote = ({ getNote, total }) => {
-  const [modalToggle, setModalToggle] = useState(false);
-
+export const CreateNote = ({ setOpen, total }) => {
   return (
-    <>
-      <div className={style.create}>
-        <div className={style.total}>Total notes: {total}</div>
-        <button 
-          className="btn" 
-          onClick={() => setModalToggle(true)}
-        >Create note</button>
+    <div className={style.create}>
+      <div className={style.total}>
+        Total notes: {total}
       </div>
-
-      <AddNote 
-        toggle={modalToggle} 
-        setModalToggle={setModalToggle}
-        getNote={getNote}
-      />
-    </>
+      <button 
+        className="btn" 
+        onClick={() => setOpen(true)}
+      >Create note</button>
+    </div>
   );
 }

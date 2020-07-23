@@ -4,31 +4,39 @@ import Sortable from 'sortablejs';
 import capitalize from '../../utils/capitalize';
 import cut from '../../utils/cut-text';
 
-export const Notes = ({ notes }) => {
-  const list = useRef();
+export const Notes = ({ notes, setNote, detailsOpen }) => {
+  const listRef = useRef();
   
   useEffect(() => {
-    new Sortable(list.current, {
+    new Sortable(listRef.current, {
       handle: `.${styles.note__handle}`,
       onEnd: e => {
         console.log(e);
       }
     });
-  });
+  }, []);
+
+  const noteDetailsHandle = note => {
+    detailsOpen(true);
+    setNote(note);
+  }
 
   return (
     <ul 
       className={styles.list}
-      ref={list}
+      ref={listRef}
     >
       {notes.map(note => (
-        <li className={`${styles.note} draggable`} key={note.id}>
+        <li 
+          className={`${styles.note} draggable`} 
+          key={note.id}
+        >
           <div className={`${styles.box} ${styles.btw} box`}>
             <div className={styles.note__title}>
               {capitalize(note.title)}
             </div>
             <div className={`${styles.note__handle} drag-handle`}>
-              <i className="fas fa-grip-horizontal"></i>
+              <i className="fas fa-grip-vertical"></i>
             </div>
           </div>
           <div className={styles.note__body}>
@@ -47,7 +55,10 @@ export const Notes = ({ notes }) => {
               </div>
             </div>
             <div className={styles.box}>
-              <button className="btn">More</button>
+              <button 
+                className="btn"
+                onClick={() => noteDetailsHandle(note)}
+              >More</button>
             </div>
           </div>
         </li>

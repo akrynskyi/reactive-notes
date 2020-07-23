@@ -1,9 +1,4 @@
 @import '../../styles/vars.scss';
-@import '../../styles/mixins/overlay.mixin.scss';
-
-.overlay {
-  @include overlay;
-}
 
 .form {
   display: flex;

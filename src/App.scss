@@ -1,6 +1,6 @@
+@import './styles/mixins/container.mixin.scss';
+
 .view {
-  max-width: 740px;
-  width: 100%;
-  margin: 0 auto;
+  @include container;
   padding: 60px 10px;
 }
